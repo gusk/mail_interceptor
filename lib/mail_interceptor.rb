@@ -57,7 +57,7 @@ module MailInterceptor
     end
 
     def intercept?
-      !Rails.env.production?
+      ENV["STAGING"] == "true" || Rails.env.development? ? true : false
     end
   end
 end
